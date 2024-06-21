@@ -25,5 +25,11 @@
 * You can press the letter *q* repeatedly when you want to exit the code.
 ## Usage/Examples
 
+This is the *DinoHood* mining game example.
+Invitation Link: https://t.me/Doginhood_bot/dogin?startapp=027s7njc
+
+https://github.com/Alperenclk/tapToEarnBotForTelegram/assets/83646458/bafb5108-b3d7-4877-b854-d1c55322cfeb
+
+
 
 
