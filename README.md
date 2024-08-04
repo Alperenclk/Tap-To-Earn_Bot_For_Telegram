@@ -22,7 +22,7 @@
     python ./main.py
     ```
 
-* You can press the letter *q* repeatedly when you want to exit the 
+* You can press the letter *q* repeatedly when you want to exit the code
 
 
 ## Usage/Examples
