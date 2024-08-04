@@ -1,4 +1,5 @@
 
+**The detailed description of this repo is as follows:**  https://medium.com/@alperenclk/automating-telegram-game-bot-clicker-with-python-step-by-step-guide-1b9206188d06
 ## Prepare your Mobile Device:
 
 - Activate *developer option* of your device. You can check for it Google.
