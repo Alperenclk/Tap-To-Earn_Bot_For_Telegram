@@ -108,7 +108,7 @@ def main(NUMBER_OF_FIND_ATTEPMT, IMAGE_COUNTER):
                 
             except Exception as e:
                 print(e)
-                result = try_to_find_object(NUMBER_OF_FIND_ATTEPMT, body_imagePath)            
+                result,body_point = try_to_find_object(NUMBER_OF_FIND_ATTEPMT, body_imagePath)            
                 if not result:
                     break
 
