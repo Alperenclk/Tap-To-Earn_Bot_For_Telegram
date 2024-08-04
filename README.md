@@ -29,6 +29,7 @@
 
 This is the *DinoHood* mining game example.
 Invitation Link: https://t.me/Doginhood_bot/dogin?startapp=027s7njc
+Special capming code: https://t.me/Doginhood_bot/dogin?startapp=027s7njc_camp8w8lhQfD
 
 https://github.com/Alperenclk/tapToEarnBotForTelegram/assets/83646458/bafb5108-b3d7-4877-b854-d1c55322cfeb
 
