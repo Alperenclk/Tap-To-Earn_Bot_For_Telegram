@@ -24,11 +24,6 @@
 
 * You can press the letter *q* repeatedly when you want to exit the 
 
-**If you get an image not recognized error, you need to save the images to the templates file, similar to the example images. Follow this steps:**
-
-- Go to **D:\Dev\Tap-To-Earn_Bot_For_Telegram\scrcpy-win64-v2.4** and run the **scrcpy.exe** file
-- Take the boss screenschot and crop it properly.
-- Save this images like same name of the orjinal images. For example: "templates/boss_body.png"
 
 ## Usage/Examples
 
@@ -37,6 +32,11 @@ Invitation Link: https://t.me/Doginhood_bot/dogin?startapp=027s7njc
 
 https://github.com/Alperenclk/tapToEarnBotForTelegram/assets/83646458/bafb5108-b3d7-4877-b854-d1c55322cfeb
 
+**If you get an image not recognized error, you need to save the images to the templates file, similar to the example images. Follow this steps:**
+
+- Go to **D:\Dev\Tap-To-Earn_Bot_For_Telegram\scrcpy-win64-v2.4** and run the **scrcpy.exe** file
+- Take the boss screenschot and crop it properly.
+- Save this images like same name of the orjinal images. For example: "templates/boss_body.png"
 
 
 
