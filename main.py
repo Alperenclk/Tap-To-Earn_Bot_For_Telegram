@@ -3,7 +3,6 @@ import subprocess
 import keyboard
 import pyautogui
 
-
 pyautogui.sleep(1)
 
 
@@ -17,7 +16,7 @@ def templateMatching(imagePath, threshold=0.8):
 def startScreaming():
 
     # Specify the folder where the .exe file is located and the file name
-    exe_file_directory = "C:\\Dev\\tapToEarnBotForTelegram\\scrcpy-win64-v2.4"
+    exe_file_directory = "C:\\Dev\\Tap-To-Earn_Bot_For_Telegram\\scrcpy-win64-v2.4"
     exe_file_name = "scrcpy.exe"
     exe_file_path = os.path.join(exe_file_directory, exe_file_name)
 
