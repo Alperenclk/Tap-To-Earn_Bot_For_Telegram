@@ -14,6 +14,11 @@
 - Create a Virtual Environment:
     ```python
     python -m venv venv
+    ```
+    ```python
+    .\venv\Scripts\activate   # for windows
+    ```
+    ```python
     pip install -r requirements.txt
     ```
 - Take a screenshot of the area that needs to be clicked continuously and put the file in the template folder.
