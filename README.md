@@ -4,7 +4,7 @@
 - Activate *developer option* of your device. You can check for it Google.
 - Go to developer option menu and activate *USB Debbuging* option.
 - Connect the USB port of the phone to the computer and turn on *USB Tethering mode* on the phone 
-- Open the telegram bot page
+- Open the telegram bot page and click play
 
 ## Installation 
 
@@ -22,7 +22,14 @@
     python ./main.py
     ```
 
-* You can press the letter *q* repeatedly when you want to exit the code.
+* You can press the letter *q* repeatedly when you want to exit the 
+
+**If you get an image not recognized error, you need to save the images to the templates file, similar to the example images. Follow this steps:**
+
+- Go to **D:\Dev\Tap-To-Earn_Bot_For_Telegram\scrcpy-win64-v2.4** and run the **scrcpy.exe** file
+- Take the boss screenschot and crop it properly.
+- Save this images like same name of the orjinal images. For example: "templates/boss_body.png"
+
 ## Usage/Examples
 
 This is the *DinoHood* mining game example.
