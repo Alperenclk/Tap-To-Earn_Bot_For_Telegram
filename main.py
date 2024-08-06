@@ -93,11 +93,11 @@ def main(NUMBER_OF_FIND_ATTEPMT, IMAGE_COUNTER):
             try:     
                 pyautogui.click(body_point.x, body_point.y)
                 
-                if counter >= IMAGE_COUNTER:
+                if counter > IMAGE_COUNTER:
                     result, claim_button_point = try_to_find_object(NUMBER_OF_FIND_ATTEPMT, claim_imagePath)
                     if result:
                         pyautogui.click(claim_button_point.x, claim_button_point.y)
-                        pyautogui.sleep(2)
+                        pyautogui.sleep(5)
                     counter = 0 
                     
                 if keyboard.is_pressed("q"):
