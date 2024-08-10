@@ -4,7 +4,7 @@ import keyboard
 import pyautogui
 
 pyautogui.sleep(1)
-
+global body_point
 # fine the coordinates
 def templateMatching(imagePath, threshold=0.75):
     findCord = pyautogui.locateOnScreen(imagePath, confidence=threshold)
@@ -33,7 +33,7 @@ def startScreaming():
     except subprocess.CalledProcessError as e:
         print(f"An error occurred while executing the exe file: {e}")
 
-    pyautogui.sleep(5)  # Wait for opening screen at 5 sec
+    pyautogui.sleep(10)  # Wait for opening screen at 5 sec
 
 # open the app
 def openTelegramApp(imagePath):
@@ -94,16 +94,20 @@ def main(NUMBER_OF_FIND_ATTEPMT, IMAGE_COUNTER):
                 pyautogui.click(body_point.x, body_point.y)
                 
                 if counter > IMAGE_COUNTER:
-                    result, claim_button_point = try_to_find_object(NUMBER_OF_FIND_ATTEPMT, claim_imagePath)
-                    if result:
+                    result_claim_button, claim_button_point = try_to_find_object(NUMBER_OF_FIND_ATTEPMT, claim_imagePath)
+                    if result_claim_button:
                         pyautogui.click(claim_button_point.x, claim_button_point.y)
                         pyautogui.sleep(5)
+                    else:
+                        result_body, body_point = try_to_find_object(NUMBER_OF_FIND_ATTEPMT, body_imagePath)
+                        if not result_body:
+                            break
                     counter = 0 
                     
                 if keyboard.is_pressed("q"):
                     break
                 
-                pyautogui.sleep(0.2)
+                pyautogui.sleep(0.02)
                 counter += 1
                 
             except Exception as e:
