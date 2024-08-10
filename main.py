@@ -95,10 +95,16 @@ def main(NUMBER_OF_FIND_ATTEPMT, IMAGE_COUNTER):
                 pyautogui.click(body_point.x, body_point.y)
 
                 if counter > IMAGE_COUNTER:
-                    claim_button_point = templateMatching(claim_imagePath)
-                    if claim_button_point:
-                        pyautogui.click(claim_button_point.x, claim_button_point.y)
-                        pyautogui.sleep(5)
+                    try:
+                        claim_button_point = templateMatching(claim_imagePath)
+                    
+                        if claim_button_point:
+                            pyautogui.click(claim_button_point.x, claim_button_point.y)
+                            pyautogui.sleep(2)
+                            pyautogui.click(claim_button_point.x, claim_button_point.y)
+                            pyautogui.sleep(5)
+                    except:
+                        continue
                     
                     body_point = templateMatching(body_imagePath)
                     if body_point:
@@ -115,6 +121,7 @@ def main(NUMBER_OF_FIND_ATTEPMT, IMAGE_COUNTER):
                 print(e)
                 c = 0
                 while NUMBER_OF_FIND_ATTEPMT > c:
+                    print(1)
                     c += 1
                     temp_body_point = templateMatching(body_imagePath)
                     if temp_body_point:  
