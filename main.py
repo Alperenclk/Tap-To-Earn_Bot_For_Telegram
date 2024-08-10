@@ -33,7 +33,7 @@ def startScreaming():
     except subprocess.CalledProcessError as e:
         print(f"An error occurred while executing the exe file: {e}")
 
-    pyautogui.sleep(10)  # Wait for opening screen at 5 sec
+    pyautogui.sleep(5)  # Wait for opening screen at 5 sec
 
 # open the app
 def openTelegramApp(imagePath):
@@ -79,29 +79,30 @@ def main(NUMBER_OF_FIND_ATTEPMT, IMAGE_COUNTER):
     # openTelegramApp(imagePath)
 
     ## Hit the boss
-    body_imagePath = "templates\\boss_body_huawei2.png"
+    # body_imagePath = "templates\\boss_body_huawei2.png"
+    body_imagePath = "templates\\boss2_body_huawei.png"
     claim_imagePath = "templates\\claim_button.png"
     print("-" * 20 + "Hitting the BOSS" + "-" * 20)
     
     
     
-    result, body_point = try_to_find_object(NUMBER_OF_FIND_ATTEPMT, body_imagePath)
-
-    if result:
+    body_point = templateMatching(body_imagePath)
+    if body_point:
         counter = 0
+        hit_counter = 0
         while True:
             try:     
                 pyautogui.click(body_point.x, body_point.y)
-                
+
                 if counter > IMAGE_COUNTER:
-                    result_claim_button, claim_button_point = try_to_find_object(NUMBER_OF_FIND_ATTEPMT, claim_imagePath)
-                    if result_claim_button:
+                    claim_button_point = templateMatching(claim_imagePath)
+                    if claim_button_point:
                         pyautogui.click(claim_button_point.x, claim_button_point.y)
                         pyautogui.sleep(5)
-                    else:
-                        result_body, body_point = try_to_find_object(NUMBER_OF_FIND_ATTEPMT, body_imagePath)
-                        if not result_body:
-                            break
+                    
+                    body_point = templateMatching(body_imagePath)
+                    if body_point:
+                        break
                     counter = 0 
                     
                 if keyboard.is_pressed("q"):
@@ -112,9 +113,17 @@ def main(NUMBER_OF_FIND_ATTEPMT, IMAGE_COUNTER):
                 
             except Exception as e:
                 print(e)
-                result,body_point = try_to_find_object(NUMBER_OF_FIND_ATTEPMT, body_imagePath)            
-                if not result:
-                    break
+                c = 0
+                while NUMBER_OF_FIND_ATTEPMT > c:
+                    c += 1
+                    temp_body_point = templateMatching(body_imagePath)
+                    if temp_body_point:  
+                        break 
+                         
+                if not temp_body_point:
+                    exit()              
+                      
+
 
     else:
         print("Object not found.")
