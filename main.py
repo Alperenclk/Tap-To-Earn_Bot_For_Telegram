@@ -107,6 +107,8 @@ def main(NUMBER_OF_FIND_ATTEPMT, IMAGE_COUNTER):
                         continue
                     
                     body_point = templateMatching(body_imagePath)
+                    print(body_point)
+                    print(len(body_point))
                     if len(body_point) == 0:
                         break
                     counter = 0 
@@ -114,7 +116,7 @@ def main(NUMBER_OF_FIND_ATTEPMT, IMAGE_COUNTER):
                 if keyboard.is_pressed("q"):
                     break
                 
-                pyautogui.sleep(0.05)
+                pyautogui.sleep(0.01)
                 counter += 1
                 
             except Exception as e:
