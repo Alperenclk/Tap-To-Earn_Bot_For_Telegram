@@ -3,10 +3,15 @@ import subprocess
 import keyboard
 import pyautogui
 
+
+# TODO:
+# - Add specific point clicker
+
+
 pyautogui.sleep(1)
 global body_point
 # fine the coordinates
-def templateMatching(imagePath, threshold=0.55):
+def templateMatching(imagePath, threshold=0.65):
     findCord = pyautogui.locateOnScreen(imagePath, confidence=threshold)
     body_points = pyautogui.center(findCord)
     return body_points
@@ -81,7 +86,7 @@ def main(NUMBER_OF_FIND_ATTEPMT, IMAGE_COUNTER):
     ## Hit the boss
     # body_imagePath = "templates\\boss_body_huawei2.png"
     body_imagePath = "templates\\boss_body_huawei.png"
-    claim_imagePath = "templates\\claim_button.png"
+    claim_imagePath = "templates\\claim_button2.png"
     print("-" * 20 + "Hitting the BOSS" + "-" * 20)
     
     
@@ -101,7 +106,8 @@ def main(NUMBER_OF_FIND_ATTEPMT, IMAGE_COUNTER):
                      
                         if claim_button_point:
                             pyautogui.sleep(2)
-                            pyautogui.click(claim_button_point.x, claim_button_point.y, interval=0.1)
+                            pyautogui.click(claim_button_point.x, claim_button_point.y)
+                            
                             pyautogui.sleep(5)
                     except:
                         pass
