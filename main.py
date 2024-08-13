@@ -6,7 +6,7 @@ import pyautogui
 pyautogui.sleep(1)
 global body_point
 # fine the coordinates
-def templateMatching(imagePath, threshold=0.75):
+def templateMatching(imagePath, threshold=0.55):
     findCord = pyautogui.locateOnScreen(imagePath, confidence=threshold)
     body_points = pyautogui.center(findCord)
     return body_points
@@ -80,7 +80,7 @@ def main(NUMBER_OF_FIND_ATTEPMT, IMAGE_COUNTER):
 
     ## Hit the boss
     # body_imagePath = "templates\\boss_body_huawei2.png"
-    body_imagePath = "templates\\boss2_body_huawei.png"
+    body_imagePath = "templates\\boss_body_huawei.png"
     claim_imagePath = "templates\\claim_button.png"
     print("-" * 20 + "Hitting the BOSS" + "-" * 20)
     
@@ -95,23 +95,22 @@ def main(NUMBER_OF_FIND_ATTEPMT, IMAGE_COUNTER):
                 pyautogui.click(body_point.x, body_point.y)
 
                 if counter > IMAGE_COUNTER:
+                    pyautogui.sleep(3)
                     try:
                         claim_button_point = templateMatching(claim_imagePath)
-                    
+                     
                         if claim_button_point:
-                            pyautogui.click(claim_button_point.x, claim_button_point.y)
                             pyautogui.sleep(2)
-                            pyautogui.click(claim_button_point.x, claim_button_point.y)
+                            pyautogui.click(claim_button_point.x, claim_button_point.y, interval=0.1)
                             pyautogui.sleep(5)
                     except:
-                        continue
+                        pass
                     
-                    body_point = templateMatching(body_imagePath)
-                    print(body_point)
-                    print(len(body_point))
-                    if len(body_point) == 0:
-                        break
-                    counter = 0 
+                    finally:
+                        body_point = templateMatching(body_imagePath)
+                        if len(body_point) == 0:
+                            break
+                        counter = 0 
                     
                 if keyboard.is_pressed("q"):
                     break
