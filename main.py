@@ -11,7 +11,7 @@ import pyautogui
 pyautogui.sleep(1)
 global body_point
 # fine the coordinates
-def templateMatching(imagePath, threshold=0.55):
+def templateMatching(imagePath, threshold=0.45):
     findCord = pyautogui.locateOnScreen(imagePath, confidence=threshold)
     body_points = pyautogui.center(findCord)
     return body_points
