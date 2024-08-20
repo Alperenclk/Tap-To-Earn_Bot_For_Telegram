@@ -6,15 +6,18 @@ import pyautogui
 
 # TODO:
 # - Add specific point clicker
-
+# - add other boss
 
 pyautogui.sleep(1)
 global body_point
+
+
 # fine the coordinates
 def templateMatching(imagePath, threshold=0.45):
     findCord = pyautogui.locateOnScreen(imagePath, confidence=threshold)
     body_points = pyautogui.center(findCord)
     return body_points
+
 
 # Start STREAMING
 def startScreaming():
@@ -39,6 +42,7 @@ def startScreaming():
         print(f"An error occurred while executing the exe file: {e}")
 
     pyautogui.sleep(5)  # Wait for opening screen at 5 sec
+
 
 # open the app
 def openTelegramApp(imagePath):
@@ -88,22 +92,20 @@ def main(NUMBER_OF_FIND_ATTEPMT, IMAGE_COUNTER):
     body_imagePath = "templates\\boss2_body_huawei.png"
     claim_imagePath = "templates\\claim_button2.png"
     print("-" * 20 + "Hitting the BOSS" + "-" * 20)
-    
-    
-    
+
     body_point = templateMatching(body_imagePath)
     if body_point:
         counter = 0
         hit_counter = 0
         while True:
-            try:     
+            try:
                 pyautogui.click(body_point.x, body_point.y)
 
                 if counter > IMAGE_COUNTER:
                     pyautogui.sleep(3)
                     try:
                         claim_button_point = templateMatching(claim_imagePath)
-                     
+
                         if claim_button_point:
                             pyautogui.sleep(2)
                             pyautogui.click(claim_button_point.x, claim_button_point.y)
@@ -111,20 +113,20 @@ def main(NUMBER_OF_FIND_ATTEPMT, IMAGE_COUNTER):
                             pyautogui.sleep(5)
                     except:
                         pass
-                    
+
                     finally:
                         body_point = templateMatching(body_imagePath)
                         pyautogui.moveTo(body_point.x, body_point.y)
                         if len(body_point) == 0:
                             break
-                        counter = 0 
-                    
+                        counter = 0
+
                 if keyboard.is_pressed("q"):
                     break
-                
+
                 pyautogui.sleep(0.01)
                 counter += 1
-                
+
             except Exception as e:
                 print(e)
                 c = 0
@@ -132,21 +134,20 @@ def main(NUMBER_OF_FIND_ATTEPMT, IMAGE_COUNTER):
                     print(1)
                     c += 1
                     temp_body_point = templateMatching(body_imagePath)
-                    if temp_body_point:  
-                        break 
-                         
-                if not temp_body_point:
-                    exit()              
-                      
+                    if temp_body_point:
+                        break
 
+                if not temp_body_point:
+                    exit()
 
     else:
         print("Object not found.")
 
+
 if __name__ == "__main__":
-    
+
     # CONSTANTS
     NUMBER_OF_FIND_ATTEPMT = 3
     IMAGE_COUNTER = 100
-    
+
     main(NUMBER_OF_FIND_ATTEPMT, IMAGE_COUNTER)
